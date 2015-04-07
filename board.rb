@@ -14,8 +14,8 @@ class Board
 
   def seed_board(seed = [], dead_alive = [1,0])
     rand_seed = Proc.new{ dead_alive.sample }
-    3.times do 
-      seed << [rand_seed[0], rand_seed[0], rand_seed[0]]
+    5.times do 
+      seed << [rand_seed[0], rand_seed[0], rand_seed[0], rand_seed[0], rand_seed[0]]
     end
     seed
   end
@@ -25,7 +25,7 @@ class Board
   end
 
   def create_row(iteration, row = [])
-    (iteration*2 + 3).times do 
+    (iteration*2 + 5).times do 
       row << 0
     end
     row

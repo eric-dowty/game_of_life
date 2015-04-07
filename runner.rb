@@ -45,26 +45,37 @@ end
 
 if __FILE__ == $0
 
-  run = Runner.new
-
-  iteration = 0
   
-  system 'clear'
-  print "PRESS CTRL+C TO QUIT\t(iteration ##{iteration})\n\n\n"
-  run.print_board
-  sleep(1)
 
-  20.times do 
-    iteration += 1
+  while true
+    
+    run = Runner.new
+    iteration = 0
     system 'clear'
     print "PRESS CTRL+C TO QUIT\t(iteration ##{iteration})\n\n\n"
-    run.iterate_to_next_tick
+    puts "\n\n"
+    print "             -- STARTING NEW STRAIN --"
+    sleep(2)
+    system 'clear'
+    print "PRESS CTRL+C TO QUIT\t(iteration ##{iteration})\n\n\n"
     run.print_board
-    sleep(1)
-    if run.system_dead?
-      print "THE SYSTEM DIED!!"
-      break 
+    sleep(0.25)
+
+    50.times do 
+      iteration += 1
+      system 'clear'
+      print "PRESS CTRL+C TO QUIT\t(iteration ##{iteration})\n\n\n"
+      run.iterate_to_next_tick
+      run.print_board
+      sleep(0.25)
+      if run.system_dead?
+        sleep(1)
+        print "\n\n             -- THE SYSTEM DIED!! --"
+        sleep(2)
+        break 
+      end
     end
+    sleep(1)
   end
 
 end
